@@ -1,7 +1,3 @@
-#Need to figure out a way to calculate the money earned through each mission as a total. This would activate after each mission.
-#Need to figure out a way to create a receipt that prints every 30 days that reduces "bills" from the total and print new total.
-
-
 import time
 
 answer_A=['A','a']
@@ -9,6 +5,16 @@ answer_B=['B','b']
 answer_C=['C','c']
 yes=['Y','y','yes','Yes']
 no=['N','n','no','No']
+
+y=200000 #starting yen
+reward=200000
+y += reward #reward through option_rival , optional_business_card and option_kitten
+
+
+y1=200000 #starting yen
+thief_reward=250000
+y1 += thief_reward #reward through option_kittyen
+
 
 sack = 0
 business_card = 0
@@ -114,6 +120,8 @@ def option_rival():
             print('You sprint out the apartment with the sack in your arms, make it all the way to the shady individual and show him the sack.'
                   'He frantically empties out the sack, ignoring everything until a small kitten falls out of the sack. He is thrilled. He '
                   'awards you with 200,000 yen!')
+            print('\nCurrent Yen:',y)
+
     else:
         print('You just ran out of the house empty handed and now the rival is onto you.\n\nGAME OVER')
 
@@ -122,7 +130,7 @@ def option_rival():
 
 
 def option_hide():
-    print('You take the sack and hide in a small closet. After some time you notice movement from inside the sack. You look inside and see'
+    print('You take the sack and hide in a small closet. After some time you notice movement from inside the sack. You look inside and see '
           'jewlery, electronics, yen, and a kitten. You decide to:')
     time.sleep(1)
     print('\nA.Try on some of the Rivals clothes, he looks fashionable\n'
@@ -148,6 +156,7 @@ def option_kitten():
     if choice in yes:
         print('You barely make it out without alerting the rival and make it back to the shady individual, he tells you that all the other'
               'items were replacable but his kitten was not. He rewards you with 200,000 yen!')
+        print('\nCurrent Yen:',y)
     if choice in no:
         print('You hesitate and the rival finds you\n\nGAME OVER')
     else:
@@ -163,6 +172,13 @@ def option_kittyen():
     if choice in answer_A:
         print('You make it out alive from the Rivals home, you make it back to the shady individual and he states that all the items inside'
               'the sack could be replaced but the kitten was irreplaceable. He rewards you with 200,000 yen!')
+        print('Current Yen:',y1)
+    elif choice in answer_B:
+        print('The rival walks in on you changing and notices how good you look in his clothing. This upsets him greatly....\n\nGAME OVER')
+    else:
+        print(required_three)
+        option_kittyen()
+
 
 
 
@@ -199,6 +215,10 @@ def option_business_card():
         print('You offer the rival a lucrative chance to join the Yakuza and show him the business card. You notice the Rivals eyes gloss up.'
               'All he ever wanted was to be apart of a family and have friends. He hands over the sack which you return to the shady individual.'
               'The shady individual is thrilled and rewards you with 200,000 yen!')
+        print('Current Yen:',y)
+    else:
+        print (required)
+        option_business_card()
 
 
 
